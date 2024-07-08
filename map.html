@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perlin Noise Terrain</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+
+      <h1>Terrain Generator</h1>
+
+      <nav class="navbar">
+
+           <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="map.html">Perlin Map Generator</a></li>
+              <li><a href="load.html">Load Downloaded Map</a></li>
+              <li><a href="about.html">About</a></li>
+           </ul>
+      </nav>
+
+      <div class="content">
+        <label for="width">Width:</label>
+        <input type="number" id="width" value="800"><br><br>
+        <label for="height">Height:</label>
+        <input type="number" id="height" value="900"><br><br>
+        <label for="scale">Scale:</label>
+        <input type="number" id="scale" value="1"><br><br>
+        <label for="noiseScale">Noise Scale:</label>
+        <input type="number" step="0.01" id="noiseScale" value="0.01"><br><br>
+        <label for="zoomFactor">Zoom Factor:</label>
+        <input type="number" id="zoomFactor" value="5"><br><br>
+        <button onclick="generateMap()">Generate</button>
+      </div>
+
+      <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+      </div>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+       <script src="sketch.js"></script>
+</body>
+
+</html>
