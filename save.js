@@ -1,11 +1,4 @@
-function saveSettings(){
-    //This collects the data from the html user input
-    const width = document.getElementById('width');
-    const height = document.getElementById('height')
-    const scale = document.getElementById('scale');
-    const noiseScale = document.getElementById('noiseScale');
-    const zoomFactor = document.getElementById('zoomFactor');
-
+function saveSettings(width,height,scale,noiseScale,zoomFactor){
    //creates the JSON object
    const settings = {
     width: width,
@@ -19,9 +12,11 @@ function saveSettings(){
    //Converts JSON object  to a string hehe
    const jsonSettings = JSON.stringify(settings);
    //blobb
-   const blob = new blob([jsonSettings], { type: "application/json"});
+   const blob = new Blob([jsonSettings], { type: "application/json"});
    
+   const url = URL.createObjectURL(blob);
    const link = document.createElement('a');
+
    link.href = url;
    link.download = 'map.json';
 
