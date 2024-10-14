@@ -5,6 +5,7 @@ let height = 900;
 let terrain = [];
 let noiseScale = 0.01;
 let zoomFactor = 5;
+let seed = Math.floor(Math.random()*10000);
 
 let generating = false;
 
@@ -14,6 +15,7 @@ function setup() {
   noiseDetail(10,0.5);
   cols = width / scl;
   rows = height / scl;
+  noiseSeed(seed);
 
   for (let x = 0; x < cols; x++) {
     terrain[x] = [];
@@ -132,8 +134,12 @@ function generateMap() {
   scl = parseInt(document.getElementById('scale').value);
   noiseScale = parseFloat(document.getElementById('noiseScale').value);
   zoomFactor = parseFloat(document.getElementById('zoomFactor').value);
+  seed = parseInt(document.getElementById('seed').value);
+  if(!seed){
+    seed = Math.floor(Math.random()*10000);
+  }
 
-  let url = `map_display.html?width=${width}&height=${height}&scale=${scl}&noiseScale=${noiseScale}&zoomFactor=${zoomFactor}`;
+  let url = `map_display.html?width=${width}&height=${height}&scale=${scl}&noiseScale=${noiseScale}&zoomFactor=${zoomFactor}&seed=${seed}`;
 
   window.location.href = url;
 }
