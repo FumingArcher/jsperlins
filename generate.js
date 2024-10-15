@@ -139,6 +139,8 @@ function generateMap() {
     seed = Math.floor(Math.random()*10000);
   }
 
+  saveMapParams(width, height, scl, noiseScale, zoomFactor, seed);
+
   let url = `map_display.html?width=${width}&height=${height}&scale=${scl}&noiseScale=${noiseScale}&zoomFactor=${zoomFactor}&seed=${seed}`;
 
   window.location.href = url;
