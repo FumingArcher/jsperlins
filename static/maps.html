@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perlin Noise Terrain</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Fuming's Generator</h1>
+
+    <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Perlin Map Generator</a></li>
+          <li><a href="load.html">Load Downloaded Map</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="maps.html">Map list</a></li>
+        </ul>
+    </nav>
+
+    <script>
+      fetch('/api/maps')
+          .then(response => response.json())
+          .then(maps => {
+              const tableBody = document.querySelector('#mapsTable tbody');
+              maps.forEach(map => {
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${map.id}</td>
+                      <td>${map.width}</td>
+                      <td>${map.height}</td>
+                      <td>${map.scale}</td>
+                      <td>${map.noiseScale}</td>
+                      <td>${map.zoomFactor}</td>
+                      <td>${map.seed}</td>
+                  `;
+                  tableBody.appendChild(row);
+              });
+          })
+          .catch(err => console.error('Error fetching maps:', err));
+  </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.js"></script>
+    <script src="/src/mapManager.js"></script> 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  </body>
+</html>
