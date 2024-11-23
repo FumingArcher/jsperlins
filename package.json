@@ -4,7 +4,8 @@
   "description": "This is supposed to be a website which generates a map.",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server/index.js"
+    "devStart": "nodemon server/index.js",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
